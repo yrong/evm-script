@@ -5,7 +5,7 @@ import "./toggle-button.css";
 import * as polkadotCryptoUtils from "@polkadot/util-crypto";
 import * as polkadotUtils from "@polkadot/util";
 
-const SS58_PREFIX = 42;
+const SS58_PREFIX = 110;
 
 function App() {
   const [addressType, setAddressType] = useState<"H160" | "SS58">("SS58");
