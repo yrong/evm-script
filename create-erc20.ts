@@ -10,7 +10,7 @@ const wsProvider = new WsProvider("ws://127.0.0.1:9944");
 // Keyring needed to sign using Alice account
 const keyring = new Keyring({ type: 'sr25519' });
 
-// ByteCode of our ERC20 exemple: copied from ./truffle/contracts/MyToken.json
+// ByteCode of our ERC20 example: copied from ./truffle/contracts/MyToken.json
 const ERC20_BYTECODES = require("./truffle/contracts/MyToken.json").bytecode;
 
 // Setup the API and Alice Account
@@ -45,7 +45,7 @@ async function init() {
 			}
 		}
 	});
-	console.log(`Initialiation done`);
+	console.log(`Initialization done`);
 	console.log(`Genesis at block: ${api.genesisHash.toHex()}`);
 
 	const alice = keyring.addFromUri('//Alice', { name: 'Alice default' });
@@ -130,7 +130,7 @@ async function step2(api: ApiPromise, alice: KeyringPair, contractAddress: strin
 async function step3(api: ApiPromise, alice: KeyringPair, bob: KeyringPair, contractAddress: string) {
 
 	const bobEvmAccount = `0x${crypto.blake2AsHex(crypto.decodeAddress(bob.address), 256).substring(26)}`;
-	console.log(`\nStep 3: Transfering Tokens to Bob EVM Account: ${bobEvmAccount}`);
+	console.log(`\nStep 3: Transferring Tokens to Bob EVM Account: ${bobEvmAccount}`);
 
 	console.log(`Preparing transfer of 0xdd`);
 	// params: [contractAddress, inputCode, value,m gasLimit, gasPrice],
@@ -193,7 +193,7 @@ async function main() {
 	// step 2: Retrieving Alice and Contract information
 	await step2(api, alice, contractAccount.address);
 
-	// step 3: Transfering Smart Contract tokens from Alice to Bob
+	// step 3: Transferring Smart Contract tokens from Alice to Bob
 	await step3(api, alice, bob, contractAccount.address);
 
 	// step 3: Retrieving Bob information
